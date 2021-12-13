@@ -17,7 +17,8 @@ class OrderRepository {
         this.create = (order) => __awaiter(this, void 0, void 0, function* () {
             return yield connection_1.connection.insert({
                 client_name: order.client_name,
-                delivery_date: order.delivery_date
+                delivery_date: order.delivery_date,
+                total: order.total
             }).table('shopper_order')
                 .then(res => {
                 this.insertItems(res[0], order.products);

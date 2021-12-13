@@ -12,9 +12,9 @@ class App {
         this.app = (0, express_1.default)();
         this.initializeMiddlewares(controllers);
     }
-    listen() {
-        this.app.listen(3001, () => {
-            console.log(`App listening on the port 3001`);
+    listen(port) {
+        this.app.listen(port, () => {
+            console.log(`App listening on the port ${port}`);
         });
     }
     initializeMiddlewares(controllers) {

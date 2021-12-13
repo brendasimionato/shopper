@@ -13,9 +13,9 @@ export class App {
         
     }
 
-    public listen() {
-        this.app.listen(3001, () => {
-            console.log(`App listening on the port 3001`);
+    public listen(port: number) {
+        this.app.listen(port, () => {
+            console.log(`App listening on the port ${port}`);
         })
     }
 

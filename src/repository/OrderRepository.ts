@@ -14,7 +14,8 @@ export class OrderRepository {
     create = async (order: Order): Promise<any> => {
         return await connection.insert({
             client_name: order.client_name,
-            delivery_date: order.delivery_date
+            delivery_date: order.delivery_date,
+            total: order.total
         }).table('shopper_order')
             .then(res => {
                 this.insertItems(res[0], order.products)

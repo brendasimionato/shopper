@@ -17,13 +17,15 @@ class OrderController {
         this.path = '/orders';
         this.router = (0, express_1.Router)();
         this.listAll = (req, res) => __awaiter(this, void 0, void 0, function* () {
-            const orders = yield this.orderService.get();
-            if (orders != null && orders != undefined) {
-                return res.status(200).send(orders);
-            }
-            else {
-                return res.status(204);
-            }
+            yield this.orderService.get()
+                .then(orders => {
+                if (orders != null && orders != undefined) {
+                    return res.status(200).send(orders);
+                }
+                else {
+                    return res.status(204);
+                }
+            });
         });
         this.create = (req, res) => __awaiter(this, void 0, void 0, function* () {
             const order = req.body;
@@ -38,8 +40,10 @@ class OrderController {
         this.update = (req, res) => __awaiter(this, void 0, void 0, function* () {
             const order = req.body;
             if (order != null && order != undefined && order.id != null) {
-                const updatedOrder = yield this.orderService.update(order);
-                return res.status(201).send(updatedOrder);
+                yield this.orderService.update(order)
+                    .then(updatedOrder => {
+                    return res.status(201).send(updatedOrder);
+                });
             }
             else {
                 return res.status(400).send("Can't possible updated order.");

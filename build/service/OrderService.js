@@ -21,18 +21,18 @@ class OrderService {
         });
         this.create = (order) => __awaiter(this, void 0, void 0, function* () {
             if (order.products == null || order.products == undefined || order.products.length <= 0) {
-                throw new OrderNoHasProductsError_1.OrderNoHasProductsError(400);
+                throw new OrderNoHasProductsError_1.OrderNoHasProductsError();
             }
             const productNoHasStockList = [];
             yield Promise.all(order.products.map((product) => __awaiter(this, void 0, void 0, function* () {
-                yield this.productService.getById(product.id)
+                this.productService.getById(product.id)
                     .then(res => {
                     if (res.qty_stock < product.qty_order)
                         productNoHasStockList.push(product);
                 });
             })));
             if (productNoHasStockList.length > 0) {
-                throw new ProductNoHasStockError_1.ProductNoHasStockError(productNoHasStockList, 400);
+                throw new ProductNoHasStockError_1.ProductNoHasStockError(productNoHasStockList);
             }
             return yield this.orderRepository.create(order);
         });

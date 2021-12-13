@@ -17,13 +17,15 @@ class ProductsController {
         this.path = '/products';
         this.router = (0, express_1.Router)();
         this.listAll = (req, res) => __awaiter(this, void 0, void 0, function* () {
-            const products = yield this.productsService.get();
-            if (products != null && products != undefined) {
-                return res.status(200).send(products);
-            }
-            else {
-                return res.status(204);
-            }
+            yield this.productsService.get()
+                .then(products => {
+                if (products != null && products != undefined) {
+                    return res.status(200).send(products);
+                }
+                else {
+                    return res.status(204);
+                }
+            });
         });
         this.router.get(`${this.path}`, this.listAll);
         this.productsService = new ProductsService_1.ProductsService();
