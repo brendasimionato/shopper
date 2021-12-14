@@ -21,4 +21,4 @@ Inicia a aplicação na porta definida no .env
 ## Obs
 Por segurança e boa prática, não está versionado o .env onde possui os dados de configuração de banco de dados e porta do servidor. Entretanto, tem o .env.example para servir como base para ser preenchido caso deseje rodar a aplicação localmente.
 
-Há também o arquivo tables.sql na raiz da aplicação. Esse arquivo possui a estrutura das tabelas que foram utilizadas para essa aplicação. Caso deseje, você pode criar essas tabelas em qualquer banco MySQL e depois configurar os dados do banco no arquivo .env para subir a aplicação.
+Há também o arquivo tables.sql na raiz da aplicação. Esse arquivo possui a estrutura das tabelas que foram utilizadas. Caso deseje, você pode criar essas tabelas em qualquer banco MySQL e depois configurar os dados do banco no arquivo .env para subir a aplicação.
