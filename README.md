@@ -18,6 +18,22 @@ Instala as dependências do projeto
 ### `npm start`
 Inicia a aplicação na porta definida no .env
 
+## Importação do CSV de produtos
+
+Criei uma aplicação separada para realizar a importação dos produtos. Fiz isso para eu não precisar adicionar nenhuma depedência que é especifica para realizar a importação, como por exemplo o **fast-csv**
+Caso deseje, para rodar a importação basta seguir os passos abaixo:
+
+### cd csv-import
+
+Navegue até o diretório da aplicação de importação do csv
+
+### `npm install`
+Instala as dependências do projeto
+
+### `node index.js`
+Executar o arquivo que realiza a importação dos produtos
+
+
 ## Obs
 Por segurança e boa prática, não está versionado o .env onde possui os dados de configuração de banco de dados e porta do servidor. Entretanto, tem o .env.example para servir como base para ser preenchido caso deseje rodar a aplicação localmente.
 
