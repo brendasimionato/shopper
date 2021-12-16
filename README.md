@@ -23,7 +23,7 @@ Inicia a aplicação na porta definida no .env
 Criei uma aplicação separada para realizar a importação dos produtos. Fiz isso para eu não precisar adicionar nenhuma depedência que é especifica para realizar a importação, como por exemplo o **fast-csv**
 Caso deseje, para rodar a importação basta seguir os passos abaixo:
 
-### cd csv-import
+### `cd csv-import`
 
 Navegue até o diretório da aplicação de importação do csv
 
